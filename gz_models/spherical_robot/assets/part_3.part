@@ -1,13 +1,13 @@
 {
     "configuration": "default",
     "documentId": "8292e6d600ced3c2465d3841",
-    "documentMicroversion": "28a3055ccb5f273cf97f075d",
-    "elementId": "d698eeb4b6508d559eaad797",
+    "documentMicroversion": "8e84412a53d1177a8b77bbb1",
+    "elementId": "8ab358f241eeb0e0766a0d5c",
     "fullConfiguration": "default",
-    "id": "Mhf5w1PWbrP+jSg8d",
+    "id": "MVLz1gpOYbigkyrU2",
     "isStandardContent": false,
-    "name": "motor <11>",
-    "partId": "JHD",
+    "name": "Part 3 <1>",
+    "partId": "RIBD",
     "suppressed": false,
     "type": "Part"
 }

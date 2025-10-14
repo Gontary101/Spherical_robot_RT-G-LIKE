@@ -1,17 +1,18 @@
+
 <sdf version="1.7">
   <model name="spherical_robot">
     
     <link name="frame">
       <inertial>
-        <pose>4.01233e-10 4.01233e-10 -0.0147997 0 0 0</pose>
-        <mass>5.6812</mass>
+        <pose>0.0261325 1.95122e-10 -0.0071972 0 0 0</pose>
+        <mass>11.6824</mass>
         <inertia>
-          <ixx>0.100807</ixx>
-          <ixy>1.23838e-20</ixy>
-          <ixz>-2.66501e-11</ixz>
-          <iyy>0.0820328</iyy>
-          <iyz>-4.08214e-11</iyz>
-          <izz>0.0962124</izz>
+          <ixx>0.325146</ixx>
+          <ixy>5.95688e-11</ixy>
+          <ixz>-0.00219723</ixz>
+          <iyy>0.175348</iyy>
+          <iyz>-2.34915e-11</iyz>
+          <izz>0.355602</izz>
         </inertia>
       </inertial>
       <pose>0 0 0 0 -0 0</pose>
@@ -40,7 +41,7 @@
       </collision>
       
       <visual name="frame_visual_mesh_1">
-        <pose relative_to="frame">0 0 0 -3.14159 -3.19497e-16 3.66144e-55</pose>
+        <pose relative_to="frame">1.27895e-34 -1.52808e-18 -1.10117e-33 3.14159 -1.05471e-15 -1.47911e-31</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/frame.stl</uri>
@@ -54,10 +55,56 @@
         </material>
       </visual>
       <collision name="frame_collision_mesh_2">
-        <pose relative_to="frame">0 0 0 -3.14159 -3.19497e-16 3.66144e-55</pose>
+        <pose relative_to="frame">1.27895e-34 -1.52808e-18 -1.10117e-33 3.14159 -1.05471e-15 -1.47911e-31</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/frame.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="camera_right_visual_mesh_1">
+        <pose relative_to="frame">0.28 6.5056e-15 3.05311e-16 -3.14159 1.27676e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_right.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.447059 0.243137 0 1</ambient>
+          <diffuse>0.447059 0.243137 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="camera_right_collision_mesh_2">
+        <pose relative_to="frame">0.28 6.5056e-15 3.05311e-16 -3.14159 1.27676e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_right.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="camera_left_visual_mesh_1">
+        <pose relative_to="frame">0.28 -2.4932e-15 3.05311e-16 -3.14159 1.4988e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_left.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.447059 0.243137 0 1</ambient>
+          <diffuse>0.447059 0.243137 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="camera_left_collision_mesh_2">
+        <pose relative_to="frame">0.28 -2.4932e-15 3.05311e-16 -3.14159 1.4988e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_left.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -634,3 +681,4 @@
     </plugin>
   </model>
 </sdf>
+

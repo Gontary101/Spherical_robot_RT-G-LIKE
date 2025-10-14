@@ -6,21 +6,21 @@
     <!-- Link frame -->
     <link name="frame">
       <inertial>
-        <pose>4.01233e-10 4.01233e-10 -0.0147997 0 0 0</pose>
-        <mass>5.6812</mass>
+        <pose>0.0261325 1.95122e-10 -0.0071972 0 0 0</pose>
+        <mass>11.6824</mass>
         <inertia>
-          <ixx>0.100807</ixx>
-          <ixy>1.23838e-20</ixy>
-          <ixz>-2.66501e-11</ixz>
-          <iyy>0.0820328</iyy>
-          <iyz>-4.08214e-11</iyz>
-          <izz>0.0962124</izz>
+          <ixx>0.325146</ixx>
+          <ixy>5.95688e-11</ixy>
+          <ixz>-0.00219723</ixz>
+          <iyy>0.175348</iyy>
+          <iyz>-2.34915e-11</iyz>
+          <izz>0.355602</izz>
         </inertia>
       </inertial>
       <pose>0 0 0 0 -0 0</pose>
       <!-- Part motor -->
       <visual name="motor_visual_mesh_1">
-        <pose relative_to="frame">-3.66259e-17 0.045 -0.135 3.14159 -2.65113e-16 1.5708</pose>
+        <pose relative_to="frame">-2.08167e-17 0.045 -0.135 3.14159 -2.02621e-16 1.5708</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/motor.stl</uri>
@@ -34,7 +34,7 @@
         </material>
       </visual>
       <collision name="motor_collision_mesh_2">
-        <pose relative_to="frame">-3.66259e-17 0.045 -0.135 3.14159 -2.65113e-16 1.5708</pose>
+        <pose relative_to="frame">-2.08167e-17 0.045 -0.135 3.14159 -2.02621e-16 1.5708</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/motor.stl</uri>
@@ -43,7 +43,7 @@
       </collision>
       <!-- Part frame -->
       <visual name="frame_visual_mesh_1">
-        <pose relative_to="frame">0 0 0 -3.14159 -3.19497e-16 3.66144e-55</pose>
+        <pose relative_to="frame">1.27895e-34 -1.52808e-18 -1.10117e-33 3.14159 -1.05471e-15 -1.47911e-31</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/frame.stl</uri>
@@ -57,16 +57,62 @@
         </material>
       </visual>
       <collision name="frame_collision_mesh_2">
-        <pose relative_to="frame">0 0 0 -3.14159 -3.19497e-16 3.66144e-55</pose>
+        <pose relative_to="frame">1.27895e-34 -1.52808e-18 -1.10117e-33 3.14159 -1.05471e-15 -1.47911e-31</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/frame.stl</uri>
           </mesh>
         </geometry>
       </collision>
+      <!-- Part camera_right -->
+      <visual name="camera_right_visual_mesh_1">
+        <pose relative_to="frame">0.28 6.5056e-15 3.05311e-16 -3.14159 1.27676e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_right.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.447059 0.243137 0 1</ambient>
+          <diffuse>0.447059 0.243137 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="camera_right_collision_mesh_2">
+        <pose relative_to="frame">0.28 6.5056e-15 3.05311e-16 -3.14159 1.27676e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_right.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <!-- Part camera_left -->
+      <visual name="camera_left_visual_mesh_1">
+        <pose relative_to="frame">0.28 -2.4932e-15 3.05311e-16 -3.14159 1.4988e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_left.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.447059 0.243137 0 1</ambient>
+          <diffuse>0.447059 0.243137 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="camera_left_collision_mesh_2">
+        <pose relative_to="frame">0.28 -2.4932e-15 3.05311e-16 -3.14159 1.4988e-15 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://spherical_robot/assets/camera_left.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
       <!-- Part motor_2 -->
       <visual name="motor_2_visual_mesh_1">
-        <pose relative_to="frame">-2.07043e-17 -0.045 -0.135 3.14159 -5.10804e-17 -1.5708</pose>
+        <pose relative_to="frame">-4.16334e-17 -0.045 -0.135 3.14159 -2.04605e-16 -1.5708</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/motor.stl</uri>
@@ -80,7 +126,7 @@
         </material>
       </visual>
       <collision name="motor_2_collision_mesh_2">
-        <pose relative_to="frame">-2.07043e-17 -0.045 -0.135 3.14159 -5.10804e-17 -1.5708</pose>
+        <pose relative_to="frame">-4.16334e-17 -0.045 -0.135 3.14159 -2.04605e-16 -1.5708</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/motor.stl</uri>
@@ -91,12 +137,12 @@
     <!-- Link inertial_wheel -->
     <link name="inertial_wheel">
       <inertial>
-        <pose>1.04194e-17 2.84745e-17 0.0154962 0 0 0</pose>
+        <pose>1.13267e-17 2.81676e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
-          <ixy>0</ixy>
-          <ixz>3.5079e-33</ixz>
+          <ixy>2.86642e-24</ixy>
+          <ixz>2.63984e-34</ixz>
           <iyy>0.0270726</iyy>
           <iyz>0</iyz>
           <izz>0.0530374</izz>
@@ -105,7 +151,7 @@
       <pose relative_to="rw_x">0 0 0 0 -0 0</pose>
       <!-- Part inertial_wheel -->
       <visual name="inertial_wheel_visual_mesh_1">
-        <pose relative_to="inertial_wheel">0 -3.06162e-19 0.0155 -1.5708 -1.28668e-31 0</pose>
+        <pose relative_to="inertial_wheel">0 -3.06162e-19 0.0155 -1.5708 -9.75115e-33 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -119,7 +165,7 @@
         </material>
       </visual>
       <collision name="inertial_wheel_collision_mesh_2">
-        <pose relative_to="inertial_wheel">0 -3.06162e-19 0.0155 -1.5708 -1.28668e-31 0</pose>
+        <pose relative_to="inertial_wheel">0 -3.06162e-19 0.0155 -1.5708 -9.75115e-33 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -129,7 +175,7 @@
     </link>
     <!-- Joint from frame to inertial_wheel -->
     <joint name="rw_x" type="revolute">
-      <pose relative_to="frame">-0.155 6.93889e-18 -6.24815e-17 -1.5708 7.45191e-07 -1.5708</pose>
+      <pose relative_to="frame">-0.155 5.41081e-18 -1.7017e-16 -1.5708 7.45191e-07 -1.5708</pose>
       <parent>frame</parent>
       <child>inertial_wheel</child>
       <axis>
@@ -149,21 +195,21 @@
     <!-- Link inertial_wheel_2 -->
     <link name="inertial_wheel_2">
       <inertial>
-        <pose>1.04194e-17 2.84745e-17 0.0154962 0 0 0</pose>
+        <pose>1.13267e-17 2.81676e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
-          <ixy>-7.51415e-19</ixy>
-          <ixz>-3.26868e-34</ixz>
+          <ixy>-1.50283e-18</ixy>
+          <ixz>-2.72418e-33</ixz>
           <iyy>0.0270726</iyy>
-          <iyz>8.1717e-35</iyz>
+          <iyz>0</iyz>
           <izz>0.0530374</izz>
         </inertia>
       </inertial>
       <pose relative_to="rw_y">0 0 0 0 -0 0</pose>
       <!-- Part inertial_wheel_2 -->
       <visual name="inertial_wheel_2_visual_mesh_1">
-        <pose relative_to="inertial_wheel_2">7.70372e-34 -3.06162e-19 0.0155 -1.5708 -0 -2.77556e-17</pose>
+        <pose relative_to="inertial_wheel_2">-2.46519e-32 -3.06162e-19 0.0155 -1.5708 1.97215e-31 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -177,7 +223,7 @@
         </material>
       </visual>
       <collision name="inertial_wheel_2_collision_mesh_2">
-        <pose relative_to="inertial_wheel_2">7.70372e-34 -3.06162e-19 0.0155 -1.5708 -0 -2.77556e-17</pose>
+        <pose relative_to="inertial_wheel_2">-2.46519e-32 -3.06162e-19 0.0155 -1.5708 1.97215e-31 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -187,7 +233,7 @@
     </link>
     <!-- Joint from frame to inertial_wheel_2 -->
     <joint name="rw_y" type="revolute">
-      <pose relative_to="frame">-1.64113e-22 0.155 1.90737e-18 1.5708 -1.38032 -1.90153e-16</pose>
+      <pose relative_to="frame">1.67475e-17 0.155 -1.22477e-16 1.5708 0.418199 -1.40892e-15</pose>
       <parent>frame</parent>
       <child>inertial_wheel_2</child>
       <axis>
@@ -207,21 +253,21 @@
     <!-- Link inertial_wheel_3 -->
     <link name="inertial_wheel_3">
       <inertial>
-        <pose>1.02035e-17 2.68386e-17 0.0154962 0 0 0</pose>
+        <pose>1.13267e-17 2.98552e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
-          <ixy>1.98531e-18</ixy>
-          <ixz>-1.68233e-18</ixz>
+          <ixy>-4.41225e-19</ixy>
+          <ixz>-5.23453e-18</ixz>
           <iyy>0.0270726</iyy>
-          <iyz>5.90871e-18</iyz>
+          <iyz>2.20254e-17</iyz>
           <izz>0.0530374</izz>
         </inertia>
       </inertial>
       <pose relative_to="rw_z">0 0 0 0 -0 0</pose>
       <!-- Part inertial_wheel_3 -->
       <visual name="inertial_wheel_3_visual_mesh_1">
-        <pose relative_to="inertial_wheel_3">-2.15951e-19 -1.94237e-18 0.0155 -1.5708 3.48472e-17 -7.45191e-07</pose>
+        <pose relative_to="inertial_wheel_3">-2.28149e-25 1.38047e-18 0.0155 -1.5708 1.93353e-16 -7.45191e-07</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -235,7 +281,7 @@
         </material>
       </visual>
       <collision name="inertial_wheel_3_collision_mesh_2">
-        <pose relative_to="inertial_wheel_3">-2.15951e-19 -1.94237e-18 0.0155 -1.5708 3.48472e-17 -7.45191e-07</pose>
+        <pose relative_to="inertial_wheel_3">-2.28149e-25 1.38047e-18 0.0155 -1.5708 1.93353e-16 -7.45191e-07</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -245,7 +291,7 @@
     </link>
     <!-- Joint from frame to inertial_wheel_3 -->
     <joint name="rw_z" type="revolute">
-      <pose relative_to="frame">0.155 5.67522e-56 6.18692e-17 1.5708 3.66644e-17 -1.5708</pose>
+      <pose relative_to="frame">0.155 -1.52808e-18 1.75827e-16 1.5708 -5.29661e-17 -1.5708</pose>
       <parent>frame</parent>
       <child>inertial_wheel_3</child>
       <axis>
@@ -265,21 +311,21 @@
     <!-- Link inertial_wheel_4 -->
     <link name="inertial_wheel_4">
       <inertial>
-        <pose>1.04194e-17 2.84745e-17 0.0154962 0 0 0</pose>
+        <pose>1.13267e-17 2.81676e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
-          <ixy>4.81482e-34</ixy>
-          <ixz>-1.66848e-34</ixz>
+          <ixy>0</ixy>
+          <ixz>2.72418e-33</ixz>
           <iyy>0.0270726</iyy>
-          <iyz>4.00051e-35</iyz>
+          <iyz>2.66956e-33</iyz>
           <izz>0.0530374</izz>
         </inertia>
       </inertial>
       <pose relative_to="rw_w">0 0 0 0 -0 0</pose>
       <!-- Part inertial_wheel_4 -->
       <visual name="inertial_wheel_4_visual_mesh_1">
-        <pose relative_to="inertial_wheel_4">0 -3.06162e-19 0.0155 -1.5708 6.16298e-33 2.77556e-17</pose>
+        <pose relative_to="inertial_wheel_4">2.46519e-32 -3.06162e-19 0.0155 -1.5708 -1.97215e-31 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -293,7 +339,7 @@
         </material>
       </visual>
       <collision name="inertial_wheel_4_collision_mesh_2">
-        <pose relative_to="inertial_wheel_4">0 -3.06162e-19 0.0155 -1.5708 6.16298e-33 2.77556e-17</pose>
+        <pose relative_to="inertial_wheel_4">2.46519e-32 -3.06162e-19 0.0155 -1.5708 -1.97215e-31 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/inertial_wheel.stl</uri>
@@ -303,7 +349,7 @@
     </link>
     <!-- Joint from frame to inertial_wheel_4 -->
     <joint name="rw_w" type="revolute">
-      <pose relative_to="frame">1.64113e-22 -0.155 9.49754e-19 -1.5708 -1.38032 -1.90143e-16</pose>
+      <pose relative_to="frame">-1.67475e-17 -0.155 1.22477e-16 -1.5708 0.418199 -1.40892e-15</pose>
       <parent>frame</parent>
       <child>inertial_wheel_4</child>
       <axis>
@@ -323,21 +369,21 @@
     <!-- Link outer -->
     <link name="outer">
       <inertial>
-        <pose>-1.21378e-06 1.77607e-06 0.18028 0 0 0</pose>
+        <pose>1.08976e-06 1.85475e-06 0.18028 0 0 0</pose>
         <mass>21.3538</mass>
         <inertia>
-          <ixx>0.695158</ixx>
-          <ixy>2.81968e-05</ixy>
-          <ixz>-6.47805e-16</ixz>
-          <iyy>0.695136</iyy>
-          <iyz>6.36409e-17</iyz>
+          <ixx>0.695162</ixx>
+          <ixy>-2.64373e-05</ixy>
+          <ixz>-6.23571e-16</ixz>
+          <iyy>0.695132</iyy>
+          <iyz>6.71331e-16</iyz>
           <izz>1.03355</izz>
         </inertia>
       </inertial>
       <pose relative_to="outer_2">0 0 0 0 -0 0</pose>
       <!-- Part internal_gear -->
       <visual name="internal_gear_visual_mesh_1">
-        <pose relative_to="outer">0.00392548 -0.00574396 0.264747 -2.1703 1.5708 0</pose>
+        <pose relative_to="outer">-0.00352439 -0.00599843 0.264747 -1.03958 1.5708 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/internal_gear.stl</uri>
@@ -351,7 +397,7 @@
         </material>
       </visual>
       <collision name="internal_gear_collision_mesh_2">
-        <pose relative_to="outer">0.00392548 -0.00574396 0.264747 -2.1703 1.5708 0</pose>
+        <pose relative_to="outer">-0.00352439 -0.00599843 0.264747 -1.03958 1.5708 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/internal_gear.stl</uri>
@@ -360,7 +406,7 @@
       </collision>
       <!-- Part internal_gear_2 -->
       <visual name="internal_gear_2_visual_mesh_1">
-        <pose relative_to="outer">0.00574396 0.00392548 0.0596262 2.54209 1.5708 0</pose>
+        <pose relative_to="outer">0.00599843 -0.00352439 0.0596262 -2.61038 1.5708 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/internal_gear.stl</uri>
@@ -374,7 +420,7 @@
         </material>
       </visual>
       <collision name="internal_gear_2_collision_mesh_2">
-        <pose relative_to="outer">0.00574396 0.00392548 0.0596262 2.54209 1.5708 0</pose>
+        <pose relative_to="outer">0.00599843 -0.00352439 0.0596262 -2.61038 1.5708 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/internal_gear.stl</uri>
@@ -383,7 +429,7 @@
       </collision>
       <!-- Part outer -->
       <visual name="outer_visual_mesh_1">
-        <pose relative_to="outer">-5.10971e-17 1.46138e-16 0.18028 -1.5708 -6.72614e-16 -0.971291</pose>
+        <pose relative_to="outer">-1.43476e-16 1.70421e-16 0.18028 -1.5708 -2.58015e-16 -2.10201</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/outer.stl</uri>
@@ -397,7 +443,7 @@
         </material>
       </visual>
       <collision name="outer_collision_mesh_2">
-        <pose relative_to="outer">-5.10971e-17 1.46138e-16 0.18028 -1.5708 -6.72614e-16 -0.971291</pose>
+        <pose relative_to="outer">-1.43476e-16 1.70421e-16 0.18028 -1.5708 -2.58015e-16 -2.10201</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/outer.stl</uri>
@@ -407,7 +453,7 @@
     </link>
     <!-- Joint from frame to outer -->
     <joint name="outer_2" type="revolute">
-      <pose relative_to="frame">9.94916e-17 0.180277 -1.04195e-17 1.5708 -3.19497e-16 3.66144e-55</pose>
+      <pose relative_to="frame">2.60629e-17 0.180277 -2.1795e-17 1.5708 -1.05471e-15 -1.47911e-31</pose>
       <parent>frame</parent>
       <child>outer</child>
       <axis>
@@ -430,21 +476,21 @@
     <!-- Link spur_gear -->
     <link name="spur_gear">
       <inertial>
-        <pose>2.73219e-17 1.47451e-17 0.0109091 0 0 0</pose>
+        <pose>-2.60209e-18 3.07913e-17 0.0109091 0 0 0</pose>
         <mass>1.06896</mass>
         <inertia>
           <ixx>0.000598717</ixx>
-          <ixy>-2.60209e-18</ixy>
-          <ixz>3.53171e-20</ixz>
+          <ixy>2.33103e-18</ixy>
+          <ixz>-5.79415e-19</ixz>
           <iyy>0.000598717</iyy>
-          <iyz>3.70601e-19</iyz>
+          <iyz>-4.49596e-19</iyz>
           <izz>0.00111262</izz>
         </inertia>
       </inertial>
       <pose relative_to="motor_joint_1">0 0 0 0 -0 0</pose>
       <!-- Part spur_gear -->
       <visual name="spur_gear_visual_mesh_1">
-        <pose relative_to="spur_gear">-0.00373433 -0.00411664 0.00854085 -0.827225 1.5708 0</pose>
+        <pose relative_to="spur_gear">0.00474638 -0.00289201 0.00854085 -2.58753 1.5708 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/spur_gear.stl</uri>
@@ -458,7 +504,7 @@
         </material>
       </visual>
       <collision name="spur_gear_collision_mesh_2">
-        <pose relative_to="spur_gear">-0.00373433 -0.00411664 0.00854085 -0.827225 1.5708 0</pose>
+        <pose relative_to="spur_gear">0.00474638 -0.00289201 0.00854085 -2.58753 1.5708 0</pose>
         <geometry>
           <mesh>
             <uri>model://spherical_robot/assets/spur_gear.stl</uri>
@@ -468,7 +514,7 @@
     </link>
     <!-- Joint from frame to spur_gear -->
     <joint name="motor_joint_1" type="revolute">
-      <pose relative_to="frame">-3.62185e-17 0.113466 -0.135 1.5708 -4.51182e-16 -8.11203e-18</pose>
+      <pose relative_to="frame">-9.95034e-18 0.113466 -0.135 1.5708 -5.55112e-16 -1.60873e-16</pose>
       <parent>frame</parent>
       <child>spur_gear</child>
       <axis>
@@ -488,14 +534,14 @@
     <!-- Link spur_gear_2 -->
     <link name="spur_gear_2">
       <inertial>
-        <pose>-2.44759e-17 -3.81639e-17 -0.0109091 0 0 0</pose>
+        <pose>-5.15674e-17 -9.54098e-18 -0.0109091 0 0 0</pose>
         <mass>1.06896</mass>
         <inertia>
           <ixx>0.000598717</ixx>
-          <ixy>-6.6471e-20</ixy>
-          <ixz>-3.42854e-35</ixz>
+          <ixy>-9.97064e-20</ixy>
+          <ixz>-4.60866e-52</ixz>
           <iyy>0.000598717</iyy>
-          <iyz>5.5902e-35</iyz>
+          <iyz>6.31588e-35</iyz>
           <izz>0.00111262</izz>
         </inertia>
       </inertial>
@@ -526,7 +572,7 @@
     </link>
     <!-- Joint from frame to spur_gear_2 -->
     <joint name="motor_joint_2" type="revolute">
-      <pose relative_to="frame">-3.03577e-17 -0.113466 -0.135 -1.5708 -0.743571 -3.14159</pose>
+      <pose relative_to="frame">-8.41341e-17 -0.113466 -0.135 -1.5708 1.01673 -3.14159</pose>
       <parent>frame</parent>
       <child>spur_gear_2</child>
       <axis>
