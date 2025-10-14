@@ -1,0 +1,76 @@
+{
+  "url": "https://cad.onshape.com/documents/8292e6d600ced3c2465d3841/w/70278e14ae86b4fb3ec7bf72/e/6feb0eee0dd640eee4462cd0",
+  "output_format": "sdf",
+  "joints": {
+    "rw_x": {
+      "limit": {
+        "effort": 5,
+        "velocity": 500
+      },
+      "dynamics": {
+        "friction": 0.01,
+        "damping": 0.005
+      }
+    },
+    "rw_y": {
+      "limit": {
+        "effort": 5,
+        "velocity": 500
+      },
+      "dynamics": {
+        "friction": 0.01,
+        "damping": 0.005
+      }
+    },
+    "rw_z": {
+      "limit": {
+        "effort": 5,
+        "velocity": 500
+      },
+      "dynamics": {
+        "friction": 0.01,
+        "damping": 0.005
+      }
+    },
+    "rw_w": {
+      "limit": {
+        "effort": 5,
+        "velocity": 500
+      },
+      "dynamics": {
+        "friction": 0.01,
+        "damping": 0.005
+      }
+    },
+    "motor_joint_1": {
+      "limit": {
+        "effort": 15,
+        "velocity": 200
+      },
+      "dynamics": {
+        "friction": 0.05,
+        "damping": 0.1
+      }
+    },
+    "motor_joint_2": {
+      "limit": {
+        "effort": 15,
+        "velocity": 200
+      },
+      "dynamics": {
+        "friction": 0.05,
+        "damping": 0.1
+      }
+    },
+    "outer_2": {
+      "limit": {
+        "effort": 30,
+        "velocity": 250
+      },
+      "dynamics": {
+        "friction": 0.005,
+        "damping": 0.01
+      }
+    }
+  }
+}

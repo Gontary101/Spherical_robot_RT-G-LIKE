@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "8292e6d600ced3c2465d3841",
+    "documentMicroversion": "3b9654bcc60a4a0e454ecd13",
+    "elementId": "a73447e56af50a7f2c47d5a2",
+    "fullConfiguration": "default",
+    "id": "MXXEsltNoh0q3cFdp",
+    "isStandardContent": false,
+    "name": "inertial_wheel <5>",
+    "partId": "JHD",
+    "suppressed": false,
+    "type": "Part"
+}
