@@ -1,20 +1,20 @@
 <?xml version="1.0" ?>
 <!-- Generated using onshape-to-robot -->
-<!-- Onshape https://cad.onshape.com/documents/8292e6d600ced3c2465d3841/w/70278e14ae86b4fb3ec7bf72/e/6feb0eee0dd640eee4462cd0 -->
+<!-- Onshape https://cad.onshape.com/documents/8292e6d600ced3c2465d3841/w/430d427fb0d84c225e0144c5/e/6feb0eee0dd640eee4462cd0 -->
 <sdf version="1.7">
   <model name="spherical_robot">
     <!-- Link frame -->
     <link name="frame">
       <inertial>
-        <pose>0.000614325 -2.37363e-10 0.00822112 0 0 0</pose>
-        <mass>9.60339</mass>
+        <pose>0.000577881 -2.23282e-10 0.00209747 0 0 0</pose>
+        <mass>10.209</mass>
         <inertia>
-          <ixx>0.244503</ixx>
-          <ixy>-1.40038e-12</ixy>
-          <ixz>4.85013e-05</ixz>
-          <iyy>0.139205</iyy>
-          <iyz>-2.58256e-11</iyz>
-          <izz>0.239745</izz>
+          <ixx>0.252055</ixx>
+          <ixy>-1.31731e-12</ixy>
+          <ixz>1.23742e-05</ixz>
+          <iyy>0.146757</iyy>
+          <iyz>-1.18668e-11</iyz>
+          <izz>0.242668</izz>
         </inertia>
       </inertial>
       <pose>0 0 0 0 -0 0</pose>
@@ -240,7 +240,7 @@
     <!-- Link inertial_wheel -->
     <link name="inertial_wheel">
       <inertial>
-        <pose>1.08162e-17 2.58126e-17 0.0154962 0 0 0</pose>
+        <pose>1.05807e-17 2.80279e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
@@ -296,7 +296,7 @@
     <!-- Link inertial_wheel_2 -->
     <link name="inertial_wheel_2">
       <inertial>
-        <pose>1.08162e-17 2.58126e-17 0.0154962 0 0 0</pose>
+        <pose>1.05807e-17 2.80279e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
@@ -352,11 +352,11 @@
     <!-- Link inertial_wheel_3 -->
     <link name="inertial_wheel_3">
       <inertial>
-        <pose>-1.08162e-17 -1.43813e-17 0.0154962 0 0 0</pose>
+        <pose>-1.05807e-17 -1.65967e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
-          <ixy>-4.41221e-19</ixy>
+          <ixy>-4.41228e-19</ixy>
           <ixz>-2.59332e-18</ixz>
           <iyy>0.0270726</iyy>
           <iyz>2.48465e-17</iyz>
@@ -408,7 +408,7 @@
     <!-- Link inertial_wheel_4 -->
     <link name="inertial_wheel_4">
       <inertial>
-        <pose>1.08162e-17 2.58126e-17 0.0154962 0 0 0</pose>
+        <pose>1.05807e-17 2.80279e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
@@ -464,14 +464,14 @@
     <!-- Link outer -->
     <link name="outer">
       <inertial>
-        <pose>-2.14353e-06 -1.81543e-07 0.18028 0 0 0</pose>
+        <pose>5.53467e-08 2.15049e-06 0.18028 0 0 0</pose>
         <mass>21.3538</mass>
         <inertia>
-          <ixx>0.695117</ixx>
-          <ixy>-5.0899e-06</ixy>
-          <ixz>3.96732e-16</ixz>
-          <iyy>0.695177</iyy>
-          <iyz>-7.85216e-16</iyz>
+          <ixx>0.695177</ixx>
+          <ixy>-1.55679e-06</ixy>
+          <ixz>-1.93071e-16</ixz>
+          <iyy>0.695117</iyy>
+          <iyz>-2.20252e-17</iyz>
           <izz>1.03355</izz>
         </inertia>
       </inertial>
@@ -530,10 +530,11 @@
             <uri>model://spherical_robot/assets/outer.stl</uri>
           </mesh>
         </geometry>
+        <transparency>0.8</transparency>
         <material>
-          <ambient>0.301961 0.301961 0.301961 1</ambient>
-          <diffuse>0.301961 0.301961 0.301961 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
+          <ambient>0.301961 0.301961 0.301961 0.2</ambient>
+          <diffuse>0.301961 0.301961 0.301961 0.2</diffuse>
+          <specular>0.1 0.1 0.1 0.2</specular>
           <emissive>0 0 0 0</emissive>
         </material>
       </visual>
@@ -600,15 +601,15 @@
     <!-- Link spur_gear -->
     <link name="spur_gear">
       <inertial>
-        <pose>4.55365e-16 -2.86229e-17 0.0109091 0 0 0</pose>
-        <mass>1.06896</mass>
+        <pose>-7.32921e-17 5.55112e-17 0.0109091 0 0 0</pose>
+        <mass>0.367668</mass>
         <inertia>
-          <ixx>0.000598717</ixx>
-          <ixy>1.24683e-18</ixy>
-          <ixz>7.39359e-19</ixz>
-          <iyy>0.000598717</iyy>
-          <iyz>2.18029e-20</iyz>
-          <izz>0.00111262</izz>
+          <ixx>0.000205928</ixx>
+          <ixy>-5.55654e-19</ixy>
+          <ixz>9.10353e-20</ixz>
+          <iyy>0.000205928</iyy>
+          <iyz>-9.03609e-20</iyz>
+          <izz>0.000382686</izz>
         </inertia>
       </inertial>
       <pose relative_to="motor_joint_1">0 0 0 0 -0 0</pose>
@@ -656,15 +657,15 @@
     <!-- Link spur_gear_2 -->
     <link name="spur_gear_2">
       <inertial>
-        <pose>-3.80962e-17 5.20417e-18 -0.0109091 0 0 0</pose>
-        <mass>1.06896</mass>
+        <pose>-3.277e-17 -3.72966e-17 -0.0109091 0 0 0</pose>
+        <mass>0.367668</mass>
         <inertia>
-          <ixx>0.000598717</ixx>
-          <ixy>-3.32355e-20</ixy>
-          <ixz>2.58231e-36</ixz>
-          <iyy>0.000598717</iyy>
-          <iyz>5.06752e-35</iyz>
-          <izz>0.00111262</izz>
+          <ixx>0.000205928</ixx>
+          <ixy>-2.85783e-21</ixy>
+          <ixz>-2.15859e-35</ixz>
+          <iyy>0.000205928</iyy>
+          <iyz>0</iyz>
+          <izz>0.000382686</izz>
         </inertia>
       </inertial>
       <pose relative_to="motor_joint_2">0 0 0 0 -0 0</pose>
@@ -713,7 +714,7 @@
     <!-- Link inertial_wheel_5 -->
     <link name="inertial_wheel_5">
       <inertial>
-        <pose>1.01421e-17 2.58126e-17 0.0154962 0 0 0</pose>
+        <pose>9.90667e-18 2.80279e-17 0.0154962 0 0 0</pose>
         <mass>5.42378</mass>
         <inertia>
           <ixx>0.0270726</ixx>
