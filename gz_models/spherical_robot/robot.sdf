@@ -530,10 +530,11 @@
             <uri>model://spherical_robot/assets/outer.stl</uri>
           </mesh>
         </geometry>
+        <transparency>0.8</transparency>
         <material>
-          <ambient>0.301961 0.301961 0.301961 1</ambient>
-          <diffuse>0.301961 0.301961 0.301961 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
+          <ambient>0.301961 0.301961 0.301961 0.2</ambient>
+          <diffuse>0.301961 0.301961 0.301961 0.2</diffuse>
+          <specular>0.1 0.1 0.1 0.2</specular>
           <emissive>0 0 0 0</emissive>
         </material>
       </visual>

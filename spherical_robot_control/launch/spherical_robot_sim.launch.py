@@ -90,7 +90,7 @@ def generate_launch_description():
           'input_topic': 'drive_velocity_command',
           'controller_topic': '/spherical_robot/drive_motor_velocity_controller/commands',
           'outer_ratio': 0.25,
-          'motor_2_sign': -1.0,
+          'motor_2_sign': 1.0,
       }])
 
   delayed_drive_bridge = TimerAction(

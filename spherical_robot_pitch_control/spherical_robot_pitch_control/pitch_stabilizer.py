@@ -235,6 +235,12 @@ class PitchStabilizer(Node):
         w_torque = self._w_sign * (-u)
 
         out = Float64MultiArray()
+        # Index → joint mapping (per ros2_control list):
+        #   0: rw_back   → rolls left when positive
+        #   1: rw_right  → pitches back when positive
+        #   2: rw_front  → rolls right when positive
+        #   3: rw_left   → pitches forward when positive
+        #   4: rw_yaw    → yaws right when positive
         out.data = [0.0, y_torque, 0.0, w_torque, 0.0]
         self._publisher.publish(out)
 
