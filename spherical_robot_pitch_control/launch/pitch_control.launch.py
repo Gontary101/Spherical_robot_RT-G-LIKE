@@ -21,13 +21,22 @@ def generate_launch_description():
       parameters=[{
           'entity_name': 'spherical_robot',
           'link_name': 'frame',
-          'kp': 10.0,
-          'kd': 2.0,
+          'use_imu': True,
+          'imu_topic': '/spherical_robot/frame_imu',
+          # Initial gains (good first pass; tune live with rqt_reconfigure or by relaunch)
+          'kp': 12.0,
+          'ki': 4.0,
+          'kd': 3.0,
           'max_torque': 50.0,
-          'w_sign': -1.0,
+          # IMPORTANT: mirrored wheel gets the opposite command so torques add on the frame
+          'w_sign': 1.0,
+          'target_pitch_rad': 0.0,
+          'deadband_rad': 0.02,
+          'rate_lpf_alpha': 0.2,
+          'i_limit': 20.0,
+          # pose_topic is unused when use_imu=True, but we keep it configurable
           'pose_topic': '/world/default/pose/info',
           'effort_command_topic': '/spherical_robot/inertial_wheel_effort_controller/commands',
       }])
 
   return LaunchDescription([pose_bridge, stabilizer])
-
