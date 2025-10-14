@@ -1,0 +1,5 @@
+- ros_topic_name: "/spherical_robot/frame_imu"
+  gz_topic_name:  "/spherical_robot/frame_imu"
+  ros_type_name:  "sensor_msgs/msg/Imu"
+  gz_type_name:   "ignition.msgs.IMU"   # <-- not gz.msgs.IMU on Humble/Fortress
+  direction:      GZ_TO_ROS

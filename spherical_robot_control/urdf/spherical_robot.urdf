@@ -1,0 +1,123 @@
+<robot name="spherical_robot">
+  
+  <link name="frame" />
+
+  <link name="rw_x_link" />
+  <link name="rw_y_link" />
+  <link name="rw_z_link" />
+  <link name="rw_w_link" />
+  <link name="motor_joint_1_link" />
+  <link name="motor_joint_2_link" />
+  <link name="outer_link" />
+
+  <joint name="rw_x" type="continuous">
+    <parent link="frame" />
+    <child link="rw_x_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="rw_y" type="continuous">
+    <parent link="frame" />
+    <child link="rw_y_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="rw_z" type="continuous">
+    <parent link="frame" />
+    <child link="rw_z_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="rw_w" type="continuous">
+    <parent link="frame" />
+    <child link="rw_w_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="motor_joint_1" type="continuous">
+    <parent link="frame" />
+    <child link="motor_joint_1_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="motor_joint_2" type="continuous">
+    <parent link="frame" />
+    <child link="motor_joint_2_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="outer_2" type="continuous">
+    <parent link="frame" />
+    <child link="outer_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+
+    <joint name="rw_x">
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      </joint>
+
+    <joint name="rw_y">
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      </joint>
+
+    <joint name="rw_z">
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      </joint>
+
+    <joint name="rw_w">
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      </joint>
+
+    <joint name="motor_joint_1">
+      <command_interface name="velocity">
+        <param name="min">-200</param>
+        <param name="max">200</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+
+    <joint name="motor_joint_2">
+      <command_interface name="velocity">
+        <param name="min">-200</param>
+        <param name="max">200</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+
+    <joint name="outer_2">
+      <command_interface name="velocity">
+        <param name="min">-250</param>
+        <param name="max">250</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </ros2_control>
+</robot>

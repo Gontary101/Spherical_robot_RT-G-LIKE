@@ -1,0 +1,29 @@
+/**/controller_manager:
+  ros__parameters:
+    update_rate: 500
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    inertial_wheel_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+
+    drive_motor_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+/**/inertial_wheel_effort_controller:
+  ros__parameters:
+    joints:
+      - rw_x
+      - rw_y
+      - rw_z
+      - rw_w
+    interface_name: effort
+
+/**/drive_motor_velocity_controller:
+  ros__parameters:
+    joints:
+      - motor_joint_1
+      - motor_joint_2
+      - outer_2
+    interface_name: velocity
