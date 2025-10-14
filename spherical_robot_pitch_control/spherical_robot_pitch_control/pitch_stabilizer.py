@@ -67,7 +67,7 @@ class PitchStabilizer(Node):
         self._ki = self.declare_parameter('ki', 4.0).get_parameter_value().double_value
         # Limit the total torque commanded to each reaction wheel
         self._max_torque = self.declare_parameter('max_torque', 50.0).get_parameter_value().double_value
-        # Reaction wheel W axis is mirrored w.r.t Y → default +1.0 so we send opposite values (u_w = -u_y)
+        # The left reaction wheel axis is mirrored w.r.t the right-hand Y wheel → default +1.0 so we send opposite values (u_left = -u_right)
         self._w_sign = self.declare_parameter('w_sign', 1.0).get_parameter_value().double_value
         # Target upright pitch (rad). Keep 0.0 if “frame Y” should be level.
         self._target_pitch = self.declare_parameter('target_pitch_rad', 0.0).get_parameter_value().double_value
@@ -111,7 +111,7 @@ class PitchStabilizer(Node):
             f'  gains:         Kp={self._kp:.2f}  Ki={self._ki:.2f}  Kd={self._kd:.2f}\n'
             f'  limits:        |wheel torque| ≤ {self._max_torque:.1f} N·m, |I| ≤ {self._i_limit:.1f} N·m\n'
             f'  target pitch:  {self._target_pitch:.4f} rad, deadband={self._deadband:.4f} rad\n'
-            f'  pairing:       w_sign={self._w_sign:.1f} (u_w = w_sign * (−u_y))'
+            f'  pairing:       w_sign={self._w_sign:.1f} (u_left = w_sign * (−u_right))'
         )
 
     def _on_imu_message(self, msg: Imu) -> None:
@@ -230,12 +230,12 @@ class PitchStabilizer(Node):
 
         # Interpret u as the **wheel Y** torque command.
         # To make frame torques add, the mirrored wheel gets the opposite sign (scaled by w_sign).
-        # Command order expected by the JointGroupEffortController: [rw_x, rw_y, rw_z, rw_w]
+        # Command order expected by the JointGroupEffortController: [rw_back, rw_right, rw_front, rw_left, rw_yaw]
         y_torque = u
         w_torque = self._w_sign * (-u)
 
         out = Float64MultiArray()
-        out.data = [0.0, y_torque, 0.0, w_torque]
+        out.data = [0.0, y_torque, 0.0, w_torque, 0.0]
         self._publisher.publish(out)
 
 

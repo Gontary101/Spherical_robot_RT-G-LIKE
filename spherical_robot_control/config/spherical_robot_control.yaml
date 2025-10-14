@@ -14,10 +14,11 @@
 /**/inertial_wheel_effort_controller:
   ros__parameters:
     joints:
-      - rw_x
-      - rw_y
-      - rw_z
-      - rw_w
+      - rw_back
+      - rw_right
+      - rw_front
+      - rw_left
+      - rw_yaw
     interface_name: effort
 
 /**/drive_motor_velocity_controller:

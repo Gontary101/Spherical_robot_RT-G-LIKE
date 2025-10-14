@@ -2,7 +2,7 @@
   "url": "https://cad.onshape.com/documents/8292e6d600ced3c2465d3841/w/70278e14ae86b4fb3ec7bf72/e/6feb0eee0dd640eee4462cd0",
   "output_format": "sdf",
   "joints": {
-    "rw_x": {
+    "rw_back": {
       "limit": {
         "effort": 5,
         "velocity": 500
@@ -12,7 +12,7 @@
         "damping": 0.005
       }
     },
-    "rw_y": {
+    "rw_right": {
       "limit": {
         "effort": 5,
         "velocity": 500
@@ -22,7 +22,7 @@
         "damping": 0.005
       }
     },
-    "rw_z": {
+    "rw_front": {
       "limit": {
         "effort": 5,
         "velocity": 500
@@ -32,7 +32,17 @@
         "damping": 0.005
       }
     },
-    "rw_w": {
+    "rw_left": {
+      "limit": {
+        "effort": 5,
+        "velocity": 500
+      },
+      "dynamics": {
+        "friction": 0.01,
+        "damping": 0.005
+      }
+    },
+    "rw_yaw": {
       "limit": {
         "effort": 5,
         "velocity": 500

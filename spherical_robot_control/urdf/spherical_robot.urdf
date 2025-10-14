@@ -2,10 +2,11 @@
   
   <link name="frame" />
 
-  <link name="rw_x_link" />
-  <link name="rw_y_link" />
-  <link name="rw_z_link" />
-  <link name="rw_w_link" />
+  <link name="rw_back_link" />
+  <link name="rw_right_link" />
+  <link name="rw_front_link" />
+  <link name="rw_left_link" />
+  <link name="rw_yaw_link" />
   <link name="motor_joint_1_link" />
   <link name="motor_joint_2_link" />
   <link name="outer_link" />
@@ -14,27 +15,33 @@
   <link name="camera_right_link" />
   <link name="camera_right_optical_frame" />
 
-  <joint name="rw_x" type="continuous">
+  <joint name="rw_back" type="continuous">
     <parent link="frame" />
-    <child link="rw_x_link" />
+    <child link="rw_back_link" />
     <axis xyz="0 0 1" />
   </joint>
 
-  <joint name="rw_y" type="continuous">
+  <joint name="rw_right" type="continuous">
     <parent link="frame" />
-    <child link="rw_y_link" />
+    <child link="rw_right_link" />
     <axis xyz="0 0 1" />
   </joint>
 
-  <joint name="rw_z" type="continuous">
+  <joint name="rw_front" type="continuous">
     <parent link="frame" />
-    <child link="rw_z_link" />
+    <child link="rw_front_link" />
     <axis xyz="0 0 1" />
   </joint>
 
-  <joint name="rw_w" type="continuous">
+  <joint name="rw_left" type="continuous">
     <parent link="frame" />
-    <child link="rw_w_link" />
+    <child link="rw_left_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="rw_yaw" type="continuous">
+    <parent link="frame" />
+    <child link="rw_yaw_link" />
     <axis xyz="0 0 1" />
   </joint>
 
@@ -59,7 +66,7 @@
   <joint name="camera_left_joint" type="fixed">
     <parent link="frame" />
     <child link="camera_left_link" />
-    <origin xyz="0.19 0.21 0.0" rpy="0 0 0.0872665" />
+    <origin xyz="0.19 -0.21 0.0" rpy="3.14159 0 -0.0872665" />
   </joint>
 
   <joint name="camera_left_optical_joint" type="fixed">
@@ -71,7 +78,7 @@
   <joint name="camera_right_joint" type="fixed">
     <parent link="frame" />
     <child link="camera_right_link" />
-    <origin xyz="0.19 -0.21 0.0" rpy="0 0 -0.0872665" />
+    <origin xyz="0.19 0.21 0.0" rpy="3.14159 0 0.0872665" />
   </joint>
 
   <joint name="camera_right_optical_joint" type="fixed">
@@ -85,41 +92,50 @@
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
 
-    <joint name="rw_x">
+    <joint name="rw_back">
       <command_interface name="effort">
         <param name="min">-50</param>
         <param name="max">50</param>
       </command_interface>
       <state_interface name="position" />
       <state_interface name="velocity" />
-      </joint>
+    </joint>
 
-    <joint name="rw_y">
+    <joint name="rw_right">
       <command_interface name="effort">
         <param name="min">-50</param>
         <param name="max">50</param>
       </command_interface>
       <state_interface name="position" />
       <state_interface name="velocity" />
-      </joint>
+    </joint>
 
-    <joint name="rw_z">
+    <joint name="rw_front">
       <command_interface name="effort">
         <param name="min">-50</param>
         <param name="max">50</param>
       </command_interface>
       <state_interface name="position" />
       <state_interface name="velocity" />
-      </joint>
+    </joint>
 
-    <joint name="rw_w">
+    <joint name="rw_left">
       <command_interface name="effort">
         <param name="min">-50</param>
         <param name="max">50</param>
       </command_interface>
       <state_interface name="position" />
       <state_interface name="velocity" />
-      </joint>
+    </joint>
+
+    <joint name="rw_yaw">
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
 
     <joint name="motor_joint_1">
       <command_interface name="velocity">
