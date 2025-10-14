@@ -9,6 +9,10 @@
   <link name="motor_joint_1_link" />
   <link name="motor_joint_2_link" />
   <link name="outer_link" />
+  <link name="camera_left_link" />
+  <link name="camera_left_optical_frame" />
+  <link name="camera_right_link" />
+  <link name="camera_right_optical_frame" />
 
   <joint name="rw_x" type="continuous">
     <parent link="frame" />
@@ -50,6 +54,30 @@
     <parent link="frame" />
     <child link="outer_link" />
     <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="camera_left_joint" type="fixed">
+    <parent link="frame" />
+    <child link="camera_left_link" />
+    <origin xyz="0.19 0.21 0.0" rpy="0 0 0.0872665" />
+  </joint>
+
+  <joint name="camera_left_optical_joint" type="fixed">
+    <parent link="camera_left_link" />
+    <child link="camera_left_optical_frame" />
+    <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
+  </joint>
+
+  <joint name="camera_right_joint" type="fixed">
+    <parent link="frame" />
+    <child link="camera_right_link" />
+    <origin xyz="0.19 -0.21 0.0" rpy="0 0 -0.0872665" />
+  </joint>
+
+  <joint name="camera_right_optical_joint" type="fixed">
+    <parent link="camera_right_link" />
+    <child link="camera_right_optical_frame" />
+    <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
   </joint>
 
   <ros2_control name="GazeboSimSystem" type="system">

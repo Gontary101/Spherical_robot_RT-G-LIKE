@@ -4,15 +4,15 @@
     
     <link name="frame">
       <inertial>
-        <pose>0.0261325 1.95122e-10 -0.0071972 0 0 0</pose>
-        <mass>11.6824</mass>
+        <pose>0.000618157 2.38843e-10 -0.00880988 0 0 0</pose>
+        <mass>9.54386</mass>
         <inertia>
-          <ixx>0.325146</ixx>
-          <ixy>5.95688e-11</ixy>
-          <ixz>-0.00219723</ixz>
-          <iyy>0.175348</iyy>
-          <iyz>-2.34915e-11</iyz>
-          <izz>0.355602</izz>
+          <ixx>0.243912</ixx>
+          <ixy>1.40911e-12</ixy>
+          <ixz>-5.19748e-05</ixz>
+          <iyy>0.138617</iyy>
+          <iyz>-2.71676e-11</iyz>
+          <izz>0.239654</izz>
         </inertia>
       </inertial>
       <pose>0 0 0 0 -0 0</pose>
@@ -86,6 +86,35 @@
         </geometry>
       </collision>
 
+      <sensor name="camera_right" type="camera">
+        <pose relative_to="frame">0.19 -0.21 0 0 0 -0.0872665</pose>
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <topic>/spherical_robot/camera_right/image</topic>
+        <gz_frame_id>spherical_robot/camera_right_optical_frame</gz_frame_id>
+        <camera>
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>50.0</far>
+          </clip>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+          </distortion>
+          <info_topic>/spherical_robot/camera_right/camera_info</info_topic>
+        </camera>
+      </sensor>
+
       <visual name="camera_left_visual_mesh_1">
         <pose relative_to="frame">0.28 -2.4932e-15 3.05311e-16 -3.14159 1.4988e-15 3.14159</pose>
         <geometry>
@@ -108,6 +137,35 @@
           </mesh>
         </geometry>
       </collision>
+
+      <sensor name="camera_left" type="camera">
+        <pose relative_to="frame">0.19 0.21 0 0 0 0.0872665</pose>
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <topic>/spherical_robot/camera_left/image</topic>
+        <gz_frame_id>spherical_robot/camera_left_optical_frame</gz_frame_id>
+        <camera>
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>50.0</far>
+          </clip>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+          </distortion>
+          <info_topic>/spherical_robot/camera_left/camera_info</info_topic>
+        </camera>
+      </sensor>
       
       <visual name="motor_2_visual_mesh_1">
         <pose relative_to="frame">-2.07043e-17 -0.045 -0.135 3.14159 -5.10804e-17 -1.5708</pose>
@@ -484,6 +542,38 @@
             <uri>model://spherical_robot/assets/outer.stl</uri>
           </mesh>
         </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <soft_cfm>0.0018</soft_cfm>
+              <soft_erp>0.3</soft_erp>
+              <kp>170000</kp>
+              <kd>400</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <fdir1>1 0 0</fdir1>
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
+            </ode>
+            <torsional>
+              <ode>
+                <coefficient>0.5</coefficient>
+                <patch_radius>0.03</patch_radius>
+                <surface_radius>0.05</surface_radius>
+                <use_patch_radius>true</use_patch_radius>
+                <slip>0.02</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0.02</restitution_coefficient>
+            <threshold>50</threshold>
+          </bounce>
+        </surface>
       </collision>
     </link>
     
@@ -681,4 +771,3 @@
     </plugin>
   </model>
 </sdf>
-

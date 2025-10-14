@@ -3,3 +3,23 @@
   ros_type_name:  "sensor_msgs/msg/Imu"
   gz_type_name:   "ignition.msgs.IMU"   # <-- not gz.msgs.IMU on Humble/Fortress
   direction:      GZ_TO_ROS
+- ros_topic_name: "/spherical_robot/camera_left/image_raw"
+  gz_topic_name:  "/spherical_robot/camera_left/image"
+  ros_type_name:  "sensor_msgs/msg/Image"
+  gz_type_name:   "ignition.msgs.Image"
+  direction:      GZ_TO_ROS
+- ros_topic_name: "/spherical_robot/camera_left/camera_info"
+  gz_topic_name:  "/spherical_robot/camera_left/camera_info"
+  ros_type_name:  "sensor_msgs/msg/CameraInfo"
+  gz_type_name:   "ignition.msgs.CameraInfo"
+  direction:      GZ_TO_ROS
+- ros_topic_name: "/spherical_robot/camera_right/image_raw"
+  gz_topic_name:  "/spherical_robot/camera_right/image"
+  ros_type_name:  "sensor_msgs/msg/Image"
+  gz_type_name:   "ignition.msgs.Image"
+  direction:      GZ_TO_ROS
+- ros_topic_name: "/spherical_robot/camera_right/camera_info"
+  gz_topic_name:  "/spherical_robot/camera_right/camera_info"
+  ros_type_name:  "sensor_msgs/msg/CameraInfo"
+  gz_type_name:   "ignition.msgs.CameraInfo"
+  direction:      GZ_TO_ROS
