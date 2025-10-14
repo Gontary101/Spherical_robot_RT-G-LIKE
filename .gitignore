@@ -1,0 +1,12 @@
+
+/*
+# Ignore all folders by default
+/*/
+
+# But do not ignore these folders:
+/!gz_models/
+/!spherical_robot_control/
+/!spherical_robot_pitch_control/
+
+!README.md
+!.gitignore
