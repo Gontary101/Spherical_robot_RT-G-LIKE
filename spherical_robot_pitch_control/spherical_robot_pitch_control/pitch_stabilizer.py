@@ -80,7 +80,7 @@ class PitchStabilizer(Node):
         # Period for debugging orientation logs (seconds). Set ≤0 to disable.
         self._log_period = self.declare_parameter('orientation_log_period', 0.2).get_parameter_value().double_value
         self._topic_cmd = self.declare_parameter(
-            'effort_command_topic', '/spherical_robot/inertial_wheel_effort_controller/commands'
+            'effort_command_topic', '/spherical_robot/inertial_wheel_pitch_effort_controller/commands'
         ).get_parameter_value().string_value
         self._target_frame = self.declare_parameter('target_frame', f'{self._entity_name}::{self._link_name}').get_parameter_value().string_value
         self._pose_topic = self.declare_parameter('pose_topic', '/spherical_robot/pose_info').get_parameter_value().string_value
@@ -230,12 +230,12 @@ class PitchStabilizer(Node):
 
         # Interpret u as the **wheel Y** torque command.
         # To make frame torques add, the mirrored wheel gets the opposite sign (scaled by w_sign).
-        # Command order expected by the JointGroupEffortController: [rw_x, rw_y, rw_z, rw_w]
+        # Command order expected by the pitch JointGroupEffortController: [rw_y, rw_w]
         y_torque = u
         w_torque = self._w_sign * (-u)
 
         out = Float64MultiArray()
-        out.data = [0.0, y_torque, 0.0, w_torque]
+        out.data = [y_torque, w_torque]
         self._publisher.publish(out)
 
 

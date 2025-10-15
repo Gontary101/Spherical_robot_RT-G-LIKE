@@ -36,7 +36,7 @@ def generate_launch_description():
           'i_limit': 20.0,
           # pose_topic is unused when use_imu=True, but we keep it configurable
           'pose_topic': '/world/default/pose/info',
-          'effort_command_topic': '/spherical_robot/inertial_wheel_effort_controller/commands',
+          'effort_command_topic': '/spherical_robot/inertial_wheel_pitch_effort_controller/commands',
       }])
 
   return LaunchDescription([pose_bridge, stabilizer])

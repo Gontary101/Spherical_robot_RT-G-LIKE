@@ -61,11 +61,19 @@ def generate_launch_description():
           '--controller-manager', '/spherical_robot/controller_manager'],
       output='screen')
 
-  inertial_spawner = Node(
+  pitch_spawner = Node(
       package='controller_manager',
       executable='spawner',
       arguments=[
-          'inertial_wheel_effort_controller',
+          'inertial_wheel_pitch_effort_controller',
+          '--controller-manager', '/spherical_robot/controller_manager'],
+      output='screen')
+
+  roll_spawner = Node(
+      package='controller_manager',
+      executable='spawner',
+      arguments=[
+          'inertial_wheel_roll_effort_controller',
           '--controller-manager', '/spherical_robot/controller_manager'],
       output='screen')
 
@@ -79,7 +87,7 @@ def generate_launch_description():
 
   delayed_spawners = TimerAction(
       period=4.0,
-      actions=[joint_state_spawner, inertial_spawner, drive_spawner])
+      actions=[joint_state_spawner, pitch_spawner, roll_spawner, drive_spawner])
 
   drive_bridge = Node(
       package='spherical_robot_control',

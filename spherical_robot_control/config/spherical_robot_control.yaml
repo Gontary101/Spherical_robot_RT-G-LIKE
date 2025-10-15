@@ -5,19 +5,27 @@
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    inertial_wheel_effort_controller:
+    inertial_wheel_pitch_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+
+    inertial_wheel_roll_effort_controller:
       type: effort_controllers/JointGroupEffortController
 
     drive_motor_velocity_controller:
       type: velocity_controllers/JointGroupVelocityController
 
-/**/inertial_wheel_effort_controller:
+/**/inertial_wheel_pitch_effort_controller:
+  ros__parameters:
+    joints:
+      - rw_y
+      - rw_w
+    interface_name: effort
+
+/**/inertial_wheel_roll_effort_controller:
   ros__parameters:
     joints:
       - rw_x
-      - rw_y
       - rw_z
-      - rw_w
     interface_name: effort
 
 /**/drive_motor_velocity_controller:
