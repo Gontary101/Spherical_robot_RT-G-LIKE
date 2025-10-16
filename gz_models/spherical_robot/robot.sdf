@@ -747,6 +747,7 @@
           <param name="max">200</param>
         </command_interface>
         <state_interface name="position" />
+        <state_interface name="velocity" />
         </joint>
       <joint name="motor_joint_2">
         <command_interface name="velocity">
@@ -754,6 +755,7 @@
           <param name="max">200</param>
         </command_interface>
         <state_interface name="position" />
+        <state_interface name="velocity" />
         </joint>
       <joint name="outer_2">
         <command_interface name="velocity">
@@ -761,6 +763,7 @@
           <param name="max">250</param>
         </command_interface>
         <state_interface name="position" />
+        <state_interface name="velocity" />
         </joint>
     </ros2_control>
     <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">

@@ -14,7 +14,7 @@ def generate_launch_description():
 
   goal_x_arg = DeclareLaunchArgument('goal_x', default_value='0.0')
   goal_y_arg = DeclareLaunchArgument('goal_y', default_value='0.0')
-  motor_rad_max_arg = DeclareLaunchArgument('motor_rad_max', default_value='7.5')
+  motor_rad_max_arg = DeclareLaunchArgument('motor_rad_max', default_value='15.0')
 
   pose_bridge = Node(
       package='ros_gz_bridge',
@@ -35,9 +35,9 @@ def generate_launch_description():
           'drive_command_topic': '/spherical_robot/drive_velocity_command',
           'goal_x': ParameterValue(LaunchConfiguration('goal_x'), value_type=float),
           'goal_y': ParameterValue(LaunchConfiguration('goal_y'), value_type=float),
-          'stop_distance': 0.15,
+          'stop_distance': 0.5,
           'motor_rad_max': ParameterValue(LaunchConfiguration('motor_rad_max'), value_type=float),
-          'k_motor': 0.35,
+          'k_motor': 0.7,
           'k_heading': 2.5,
           'k_heading_rate_damp': 0.6,
           'heading_gate_rad': 1.0472,
@@ -50,16 +50,16 @@ def generate_launch_description():
           'drive_wheel_radius': 0.26926,
           'outer_velocity_ratio': 0.25,
           'motor_2_sign': -1.0,
-          'kp_roll': 6.0,
-          'ki_roll': 1.5,
-          'kd_roll': 2.0,
-          'kp_pitch': 20.0,
-          'ki_pitch': 8.0,
-          'kd_pitch': 6.0,
+          'kp_roll': 5.0,
+          'ki_roll': 1.0,
+          'kd_roll': 0.0,
+          'kp_pitch': 10.0,
+          'ki_pitch': 3.0,
+          'kd_pitch': 4.0,
           'rate_lpf_alpha': 0.2,
           'deadband_rad': 0.02,
-          'torque_limit_nm': 50.0,
-          'i_limit_nm': 20.0,
+          'torque_limit_nm': 30.0,
+          'i_limit_nm': 10.0,
           'gyro_ff_enable': True,
           'gyro_ff_gain': 1.0,
           'wheel_inertia_kgm2': 0.0530374,

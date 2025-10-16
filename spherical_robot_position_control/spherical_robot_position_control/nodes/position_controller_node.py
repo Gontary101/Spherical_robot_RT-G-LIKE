@@ -23,6 +23,7 @@ class PositionControllerNode(Node):
         # --- Parameters ---
         entity_name = self.declare_parameter('entity_name', 'spherical_robot').get_parameter_value().string_value
         link_name = self.declare_parameter('link_name', 'frame').get_parameter_value().string_value
+        self._entity_name = entity_name
 
         self._imu_topic = self.declare_parameter('imu_topic', '/spherical_robot/frame_imu').get_parameter_value().string_value
         self._pose_topic = self.declare_parameter('pose_topic', '/world/default/pose/info').get_parameter_value().string_value
@@ -224,9 +225,13 @@ class PositionControllerNode(Node):
         shell_rad = self._outer_shell_velocity
         if abs(shell_rad) < 1e-6:
             # Estimate from motor velocities when direct measurement is unavailable
-            shell_rad = self._outer_velocity_ratio * 0.5 * (
+            est = self._outer_velocity_ratio * 0.5 * (
                 self._motor_velocity_1 - self._motor_2_sign * self._motor_velocity_2
             )
+            shell_rad = est
+        if abs(shell_rad) < 1e-6:
+            # Final fallback: use last commanded motor speed through the bridge ratio
+            shell_rad = self._outer_velocity_ratio * self._last_motor_command
 
         nav_cmd = self._navigator.compute(
             position_xy=self._position_xy,
@@ -267,6 +272,9 @@ class PositionControllerNode(Node):
                 self.get_logger().info(
                     f'err=({nav_cmd.error_x:+.3f},{nav_cmd.error_y:+.3f})m '
                     f'dist={nav_cmd.distance:.3f}m '
+                    f'psi_err={math.degrees(nav_cmd.heading_error):+.1f}deg '
+                    f'psi_dot_cmd={nav_cmd.yaw_rate_command:+.3f}rad/s '
+                    f'roll_tgt={math.degrees(nav_cmd.roll_target):+.1f}deg '
                     f'cmd_motor={nav_cmd.motor_velocity:.3f}rad/s '
                     f'shell_rad_est={shell_rad:.3f}rad/s '
                     f'roll_eff=[{wheel_cmds.roll_pair[0]:+.2f},{wheel_cmds.roll_pair[1]:+.2f}] '
