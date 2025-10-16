@@ -13,3 +13,6 @@
 !.gitignore
 !LICENSE
 !/img/
+*.pyc
+
+/test/

@@ -50,7 +50,7 @@ def generate_launch_description():
           'drive_wheel_radius': 0.26926,
           'outer_velocity_ratio': 0.25,
           'motor_2_sign': -1.0,
-          'kp_roll': 6.0,
+          'kp_roll': 20.0,
           'ki_roll': 1.5,
           'kd_roll': 2.0,
           'kp_pitch': 20.0,
