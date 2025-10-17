@@ -6,8 +6,6 @@
   <link name="rw_y_link" />
   <link name="rw_z_link" />
   <link name="rw_w_link" />
-  <link name="motor_joint_1_link" />
-  <link name="motor_joint_2_link" />
   <link name="outer_link" />
   <link name="camera_left_link" />
   <link name="camera_left_optical_frame" />
@@ -35,18 +33,6 @@
   <joint name="rw_w" type="continuous">
     <parent link="frame" />
     <child link="rw_w_link" />
-    <axis xyz="0 0 1" />
-  </joint>
-
-  <joint name="motor_joint_1" type="continuous">
-    <parent link="frame" />
-    <child link="motor_joint_1_link" />
-    <axis xyz="0 0 1" />
-  </joint>
-
-  <joint name="motor_joint_2" type="continuous">
-    <parent link="frame" />
-    <child link="motor_joint_2_link" />
     <axis xyz="0 0 1" />
   </joint>
 
@@ -120,24 +106,6 @@
       <state_interface name="position" />
       <state_interface name="velocity" />
       </joint>
-
-    <joint name="motor_joint_1">
-      <command_interface name="velocity">
-        <param name="min">-200</param>
-        <param name="max">200</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-
-    <joint name="motor_joint_2">
-      <command_interface name="velocity">
-        <param name="min">-200</param>
-        <param name="max">200</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
 
     <joint name="outer_2">
       <command_interface name="velocity">

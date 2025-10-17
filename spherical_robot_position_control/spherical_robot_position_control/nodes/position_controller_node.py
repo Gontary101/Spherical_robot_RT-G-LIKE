@@ -57,8 +57,6 @@ class PositionControllerNode(Node):
         creep_motor_rad = self.declare_parameter('creep_motor_rad', 0.8).get_parameter_value().double_value
         motor_rad_acc_limit = self.declare_parameter('motor_rad_acc_limit', 3.0).get_parameter_value().double_value
         self._drive_radius = self.declare_parameter('drive_wheel_radius', 0.26926).get_parameter_value().double_value
-        self._outer_velocity_ratio = self.declare_parameter('outer_velocity_ratio', 0.25).get_parameter_value().double_value
-        self._motor_2_sign = self.declare_parameter('motor_2_sign', -1.0).get_parameter_value().double_value
 
         kp_roll = self.declare_parameter('kp_roll', 6.0).get_parameter_value().double_value
         ki_roll = self.declare_parameter('ki_roll', 1.5).get_parameter_value().double_value
@@ -143,8 +141,6 @@ class PositionControllerNode(Node):
 
         self._wheel_velocities: Dict[str, float] = {}
         self._outer_shell_velocity: float = 0.0
-        self._motor_velocity_1: float = 0.0
-        self._motor_velocity_2: float = 0.0
         self._last_motor_command: float = 0.0
 
         self._last_control_time: Optional[Time] = None
@@ -199,10 +195,6 @@ class PositionControllerNode(Node):
                 self._wheel_velocities[name] = vel
             elif name == 'outer_2':
                 self._outer_shell_velocity = vel
-            elif name == 'motor_joint_1':
-                self._motor_velocity_1 = vel
-            elif name == 'motor_joint_2':
-                self._motor_velocity_2 = vel
 
     # ------------------------------------------------------------------
     # Control loop
@@ -224,14 +216,8 @@ class PositionControllerNode(Node):
 
         shell_rad = self._outer_shell_velocity
         if abs(shell_rad) < 1e-6:
-            # Estimate from motor velocities when direct measurement is unavailable
-            est = self._outer_velocity_ratio * 0.5 * (
-                self._motor_velocity_1 - self._motor_2_sign * self._motor_velocity_2
-            )
-            shell_rad = est
-        if abs(shell_rad) < 1e-6:
-            # Final fallback: use last commanded motor speed through the bridge ratio
-            shell_rad = self._outer_velocity_ratio * self._last_motor_command
+            # Fallback: last commanded shell speed (bridge ratio is 1.0)
+            shell_rad = self._last_motor_command
 
         nav_cmd = self._navigator.compute(
             position_xy=self._position_xy,
@@ -275,8 +261,8 @@ class PositionControllerNode(Node):
                     f'psi_err={math.degrees(nav_cmd.heading_error):+.1f}deg '
                     f'psi_dot_cmd={nav_cmd.yaw_rate_command:+.3f}rad/s '
                     f'roll_tgt={math.degrees(nav_cmd.roll_target):+.1f}deg '
-                    f'cmd_motor={nav_cmd.motor_velocity:.3f}rad/s '
-                    f'shell_rad_est={shell_rad:.3f}rad/s '
+                    f'cmd_shell={nav_cmd.motor_velocity:.3f}rad/s '
+                    f'shell_rad={shell_rad:.3f}rad/s '
                     f'roll_eff=[{wheel_cmds.roll_pair[0]:+.2f},{wheel_cmds.roll_pair[1]:+.2f}] '
                     f'pitch_eff=[{wheel_cmds.pitch_pair[0]:+.2f},{wheel_cmds.pitch_pair[1]:+.2f}]'
                 )

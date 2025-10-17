@@ -31,7 +31,5 @@
 /**/drive_motor_velocity_controller:
   ros__parameters:
     joints:
-      - motor_joint_1
-      - motor_joint_2
       - outer_2
     interface_name: velocity

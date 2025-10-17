@@ -48,8 +48,6 @@ def generate_launch_description():
           'creep_motor_rad': 0.8,
           'motor_rad_acc_limit': 3.0,
           'drive_wheel_radius': 0.26926,
-          'outer_velocity_ratio': 0.25,
-          'motor_2_sign': -1.0,
           'kp_roll': 5.0,
           'ki_roll': 1.0,
           'kd_roll': 3.0,
@@ -82,8 +80,6 @@ def generate_launch_description():
           'entity_name': 'spherical_robot',
           'link_name': 'frame',
           'drive_wheel_radius': 0.26926,
-          'outer_velocity_ratio': 0.25,
-          'motor_2_sign': -1.0,
           'log_period': 0.5,
       }])
 

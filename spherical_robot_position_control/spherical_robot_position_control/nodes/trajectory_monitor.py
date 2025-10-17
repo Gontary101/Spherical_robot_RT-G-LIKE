@@ -21,8 +21,6 @@ class TrajectoryMonitor(Node):
         self._joint_states_topic = self.declare_parameter('joint_states_topic', '/joint_states').get_parameter_value().string_value
         self._drive_cmd_topic = self.declare_parameter('drive_command_topic', '/spherical_robot/drive_velocity_command').get_parameter_value().string_value
         self._drive_radius = self.declare_parameter('drive_wheel_radius', 0.26926).get_parameter_value().double_value
-        self._outer_velocity_ratio = self.declare_parameter('outer_velocity_ratio', 0.25).get_parameter_value().double_value
-        self._motor_2_sign = self.declare_parameter('motor_2_sign', -1.0).get_parameter_value().double_value
         self._log_period = max(0.1, self.declare_parameter('log_period', 0.5).get_parameter_value().double_value)
 
         entity_name = self.declare_parameter('entity_name', 'spherical_robot').get_parameter_value().string_value
@@ -37,8 +35,6 @@ class TrajectoryMonitor(Node):
 
         self._position_xy: Optional[Tuple[float, float]] = None
         self._cmd_motor: float = 0.0
-        self._motor_velocity_1: float = 0.0
-        self._motor_velocity_2: float = 0.0
         self._outer_velocity: float = 0.0
         self._last_log_time: Optional[float] = None
         self._pose_frame_logged = False
@@ -73,11 +69,7 @@ class TrajectoryMonitor(Node):
 
     def _on_joint_state(self, msg: JointState) -> None:
         for name, vel in zip(msg.name, msg.velocity):
-            if name == 'motor_joint_1':
-                self._motor_velocity_1 = vel
-            elif name == 'motor_joint_2':
-                self._motor_velocity_2 = vel
-            elif name == 'outer_2':
+            if name == 'outer_2':
                 self._outer_velocity = vel
 
     def _on_drive_command(self, msg: Float64) -> None:
@@ -88,26 +80,19 @@ class TrajectoryMonitor(Node):
         if self._position_xy is None:
             return
 
-        now_sec = self.get_clock().now().nanoseconds * 1e-9
         shell_rad = self._outer_velocity
-        if abs(shell_rad) < 1e-6:
-            shell_rad = self._outer_velocity_ratio * 0.5 * (
-                self._motor_velocity_1 - self._motor_2_sign * self._motor_velocity_2
-            )
         shell_linear = shell_rad * self._drive_radius
 
         err_x = self._goal_x - self._position_xy[0]
         err_y = self._goal_y - self._position_xy[1]
 
         self.get_logger().info(
-            f't={now_sec:7.2f}s goal=({self._goal_x:+.3f},{self._goal_y:+.3f}) '
+            f't={self.get_clock().now().nanoseconds*1e-9:7.2f}s goal=({self._goal_x:+.3f},{self._goal_y:+.3f}) '
             f'pose=({self._position_xy[0]:+.3f},{self._position_xy[1]:+.3f}) '
             f'err=({err_x:+.3f},{err_y:+.3f}) '
-            f'cmd_motor={self._cmd_motor:+.3f}rad/s '
-            f'motor=[{self._motor_velocity_1:+.3f},{self._motor_velocity_2:+.3f}]rad/s '
+            f'cmd_shell={self._cmd_motor:+.3f}rad/s '
             f'shell_rad={shell_rad:+.3f}rad/s shell_lin={shell_linear:+.3f}m/s'
         )
-        self._last_log_time = now_sec
 
     def _resolve_world_position(
         self,

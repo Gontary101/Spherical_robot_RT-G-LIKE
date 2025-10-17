@@ -592,119 +592,7 @@
           <damping>0.01</damping>
         </dynamics>
       </axis>
-    </joint>
-    
-    <link name="spur_gear">
-      <inertial>
-        <pose>2.73219e-17 1.47451e-17 0.0109091 0 0 0</pose>
-        <mass>1.06896</mass>
-        <inertia>
-          <ixx>0.000598717</ixx>
-          <ixy>-2.60209e-18</ixy>
-          <ixz>3.53171e-20</ixz>
-          <iyy>0.000598717</iyy>
-          <iyz>3.70601e-19</iyz>
-          <izz>0.00111262</izz>
-        </inertia>
-      </inertial>
-      <pose relative_to="motor_joint_1">0 0 0 0 -0 0</pose>
-      
-      <visual name="spur_gear_visual_mesh_1">
-        <pose relative_to="spur_gear">-0.00373433 -0.00411664 0.00854085 -0.827225 1.5708 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://spherical_robot/assets/spur_gear.stl</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <ambient>0.980392 0.796078 0.262745 1</ambient>
-          <diffuse>0.980392 0.796078 0.262745 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
-          <emissive>0 0 0 0</emissive>
-        </material>
-      </visual>
-      <collision name="spur_gear_collision_mesh_2">
-        <pose relative_to="spur_gear">-0.00373433 -0.00411664 0.00854085 -0.827225 1.5708 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://spherical_robot/assets/spur_gear.stl</uri>
-          </mesh>
-        </geometry>
-      </collision>
-    </link>
-    
-    <joint name="motor_joint_1" type="revolute">
-      <pose relative_to="frame">-3.62185e-17 0.113466 -0.135 1.5708 -4.51182e-16 -8.11203e-18</pose>
-      <parent>frame</parent>
-      <child>spur_gear</child>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <effort>15</effort>
-          <velocity>200</velocity>
-        </limit>
-        <dynamics>
-          <friction>0.05</friction>
-          <damping>0.1</damping>
-        </dynamics>
-      </axis>
-    </joint>
-    
-    <link name="spur_gear_2">
-      <inertial>
-        <pose>-2.44759e-17 -3.81639e-17 -0.0109091 0 0 0</pose>
-        <mass>1.06896</mass>
-        <inertia>
-          <ixx>0.000598717</ixx>
-          <ixy>-6.6471e-20</ixy>
-          <ixz>-3.42854e-35</ixz>
-          <iyy>0.000598717</iyy>
-          <iyz>5.5902e-35</iyz>
-          <izz>0.00111262</izz>
-        </inertia>
-      </inertial>
-      <pose relative_to="motor_joint_2">0 0 0 0 -0 0</pose>
-      
-      <visual name="spur_gear_2_visual_mesh_1">
-        <pose relative_to="spur_gear_2">-3.79643e-05 0.00555792 -0.0132773 1.5708 1.5708 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://spherical_robot/assets/spur_gear.stl</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <ambient>0.980392 0.796078 0.262745 1</ambient>
-          <diffuse>0.980392 0.796078 0.262745 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
-          <emissive>0 0 0 0</emissive>
-        </material>
-      </visual>
-      <collision name="spur_gear_2_collision_mesh_2">
-        <pose relative_to="spur_gear_2">-3.79643e-05 0.00555792 -0.0132773 1.5708 1.5708 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://spherical_robot/assets/spur_gear.stl</uri>
-          </mesh>
-        </geometry>
-      </collision>
-    </link>
-    
-    <joint name="motor_joint_2" type="revolute">
-      <pose relative_to="frame">-3.03577e-17 -0.113466 -0.135 -1.5708 -0.743571 -3.14159</pose>
-      <parent>frame</parent>
-      <child>spur_gear_2</child>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <effort>15</effort>
-          <velocity>200</velocity>
-        </limit>
-        <dynamics>
-          <friction>0.05</friction>
-          <damping>0.1</damping>
-        </dynamics>
-      </axis>
-    </joint>
+        </joint>
     <ros2_control name="GazeboSimSystem" type="system">
       <hardware>
         <plugin>gz_ros2_control/GazeboSimSystem</plugin>
@@ -737,22 +625,6 @@
         <command_interface name="effort">
           <param name="min">-50</param>
           <param name="max">50</param>
-        </command_interface>
-        <state_interface name="position" />
-        <state_interface name="velocity" />
-        </joint>
-      <joint name="motor_joint_1">
-        <command_interface name="velocity">
-          <param name="min">-200</param>
-          <param name="max">200</param>
-        </command_interface>
-        <state_interface name="position" />
-        <state_interface name="velocity" />
-        </joint>
-      <joint name="motor_joint_2">
-        <command_interface name="velocity">
-          <param name="min">-200</param>
-          <param name="max">200</param>
         </command_interface>
         <state_interface name="position" />
         <state_interface name="velocity" />
