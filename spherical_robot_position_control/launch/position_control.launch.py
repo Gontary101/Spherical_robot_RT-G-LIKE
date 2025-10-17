@@ -14,7 +14,7 @@ def generate_launch_description():
 
   goal_x_arg = DeclareLaunchArgument('goal_x', default_value='0.0')
   goal_y_arg = DeclareLaunchArgument('goal_y', default_value='0.0')
-  motor_rad_max_arg = DeclareLaunchArgument('motor_rad_max', default_value='15.0')
+  motor_rad_max_arg = DeclareLaunchArgument('motor_rad_max', default_value='10.0')
 
   pose_bridge = Node(
       package='ros_gz_bridge',
@@ -46,7 +46,7 @@ def generate_launch_description():
           'friction_mu_max': 0.8,
           'roll_enable_shell_rad': 0.5,
           'creep_motor_rad': 0.8,
-          'motor_rad_acc_limit': 3.0,
+          'motor_rad_acc_limit': 1.5,
           'drive_wheel_radius': 0.26926,
           'kp_roll': 5.0,
           'ki_roll': 1.0,
@@ -56,8 +56,8 @@ def generate_launch_description():
           'kd_pitch': 4.0,
           'rate_lpf_alpha': 0.2,
           'deadband_rad': 0.02,
-          'torque_limit_nm': 30.0,
-          'i_limit_nm': 10.0,
+          'torque_limit_nm': 50.0,
+          'i_limit_nm': 20.0,
           'gyro_ff_enable': True,
           'gyro_ff_gain': 1.0,
           'wheel_inertia_kgm2': 0.0530374,
