@@ -88,8 +88,8 @@ class GoalNavigator:
 
         roll_target = 0.0
         if not arrived:
-            shell_speed = abs(shell_rad) * self._drive_radius
-            arg = (shell_speed * yaw_rate_cmd) / self._gravity
+            shell_speed_signed = shell_rad * self._drive_radius  # preserve direction of travel
+            arg = (shell_speed_signed * yaw_rate_cmd) / self._gravity
             raw_roll = clamp(math.atan(arg), -self._roll_cap, self._roll_cap)
             fade = clamp(abs(shell_rad) / max(self._roll_enable_shell_rad, 1e-3), 0.2, 1.0)
             roll_target = raw_roll * fade

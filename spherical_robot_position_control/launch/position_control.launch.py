@@ -52,7 +52,7 @@ def generate_launch_description():
           'motor_2_sign': -1.0,
           'kp_roll': 5.0,
           'ki_roll': 1.0,
-          'kd_roll': 0.0,
+          'kd_roll': 3.0,
           'kp_pitch': 10.0,
           'ki_pitch': 3.0,
           'kd_pitch': 4.0,

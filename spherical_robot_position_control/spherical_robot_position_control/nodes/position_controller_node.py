@@ -244,7 +244,7 @@ class PositionControllerNode(Node):
         drive_msg = Float64()
         drive_msg.data = -nav_cmd.motor_velocity
         self._pub_drive.publish(drive_msg)
-        self._last_motor_command = nav_cmd.motor_velocity
+        self._last_motor_command = drive_msg.data
 
         wheel_cmds = self._attitude.step(
             roll=self._roll,
